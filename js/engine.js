@@ -28,6 +28,10 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    var scoreDiv = document.createElement("div"); 
+    var scoreContent = document.createTextNode("0");
+    scoreDiv.appendChild(scoreContent);
+    doc.body.appendChild(scoreDiv);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -47,6 +51,10 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
+        //var $scoreDiv = $("<div>" + player.score +"</div>");
+        //doc.body.appendChild(scoreDiv);
+        scoreContent.nodeValue = "You Scored::" + player.score;
+        //console.log("abc" + player.score);
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
